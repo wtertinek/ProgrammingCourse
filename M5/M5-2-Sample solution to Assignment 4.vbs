@@ -1,47 +1,14 @@
-Dim number1, number2, operand
+Dim multiplier, numbers(5)
 
-number1 = GetNumber("Please enter the first number")
-operand = GetOperand()
-number2 = GetNumber("Please enter the second number")
+Do
+  multiplier = InputBox("Please enter the multiplier:")
+Loop Until IsNumeric(multiplier)
 
-If operand = "+" Then
-  ShowResult number1, "+", number2, number1 + number2
-ElseIf operand = "-" Then
-  ShowResult number1, "-", number2, number1 - number2
-ElseIf operand = "*" Then
-  ShowResult number1, "*", number2, number1 * number2
-ElseIf operand = "/" Then
-  ShowResult number1, "/", number2, number1 / number2
-End If
+multiplier = CInt(multiplier)
 
-Function GetNumber(text)
-  Dim input
+For idx = 0 To 4
+  numbers(idx) = (idx + 1) * multiplier
+Next
 
-  Do
-    input = InputBox(text)
-    
-    If input = "" Then
-      WScript.Quit
-    End If
-  Loop Until IsNumeric(input)
-  
-  GetNumber = CInt(input)
-End Function
-
-Function GetOperand()
-  Dim input
-
-  Do
-    input = InputBox("Choose the operation to perform (+, -, *, /):")
-
-    If input = "" Then
-      WScript.Quit
-    End If
-  Loop Until input = "+" Or input = "-" Or input = "*" Or input = "/"
-  
-  GetOperand = input
-End Function
-
-Sub ShowResult(number1, operand, number2, result)
-  MsgBox number1 & operand & number2 & " = " & result
-End Sub
+MsgBox "The first value is:" & numbers(0)
+MsgBox "The last value is:" & numbers(4)

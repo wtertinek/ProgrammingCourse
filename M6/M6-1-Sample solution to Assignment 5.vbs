@@ -18,7 +18,7 @@ If operand = "+" Or operand = "-" Or operand = "*" Or operand = "/" Then
   
   MsgBox firstNumber & " " & operand & " " & secondNumber & " = " & result
 Else
-  MsgBox "Invalid operation"
+  MsgBox "Invalid oepration"
 End If
 
 Function GetNumber(text)
@@ -26,11 +26,11 @@ Function GetNumber(text)
 
   Do
     input = InputBox(text)
-    
+
     If input = "" Then
       WScript.Quit
     End If
   Loop Until IsNumeric(input)
   
-  GetNumber = CDbl(input)
+  GetNumber = CInt(input)
 End Function
